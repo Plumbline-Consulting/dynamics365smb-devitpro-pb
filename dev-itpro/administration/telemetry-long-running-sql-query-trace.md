@@ -5,14 +5,12 @@ author: jswymer
 ms.topic: concept-article
 ms.devlang: al
 ms.search.keywords: administration, tenant, admin, environment, sandbox, telemetry
-ms.date: 04/01/2021
+ms.date: 03/30/2026
 ms.author: jswymer
 ms.reviewer: jswymer
 ---
 
 # Analyzing Long Running Operation (SQL Query) Telemetry
-
-[!INCLUDE[azure-ad-to-microsoft-entra-id](~/../shared-content/shared/azure-ad-to-microsoft-entra-id.md)]
 
 Any SQL query that takes longer than 750 milliseconds to execute will be sent to your Azure Application Insights resource. This enables you to focus on tuning SQL queries that take too long to execute (maybe one or more tables miss an index or maybe some filters are missing). It also reduces the ingestion of data into the Azure Application Insights resource to save cost of having telemetry.
 
@@ -90,9 +88,10 @@ This table describes the different dimensions of a **Long Running Operation (SQL
 |executionTime|Specifies the time that it took to execute the SQL statement**. The value has the format hh:mm:ss.sssssss.|
 |longRunningThreshold|Specifies the amount of time that an SQL query can run before a warning event is recorded.  The value has the format hh:mm:ss.sssssss. <br /><br >This threshold is controlled by the [!INCLUDE[server](../developer/includes/server.md)] configuration setting called SqlLongRunningThreshold. |
 |sqlStatement|Specifies the SQL statement that was executed for the long running query. The value is limited to 8192 characters. If the value exceeds 8192 characters, it will be truncated in manner that still provides the most pertinent information.|
+|sqlServerSessionId|Specifies the ID of the SQL server session that executed the long running SQL query. Supported with schema version 0.6 and later.|
 |deprecatedKeys|A comma-separated list of all the keys that have been deprecated. The keys in this list are still supported but will eventually be removed in the next major release. We recommend that update any queries that use these keys to use the new key name.|
 
-** From telemetrySchemaVersion **0.6** and onwards, this value also includes the CompanyOpen operation.
+** From telemetrySchemaVersion **0.6** and later, this value also includes the CompanyOpen operation.
 
 ## Example
 

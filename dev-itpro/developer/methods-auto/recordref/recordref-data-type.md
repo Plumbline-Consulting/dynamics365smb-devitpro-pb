@@ -2,7 +2,7 @@
 title: "RecordRef data type"
 description: "References a record in a table."
 ms.author: solsen
-ms.date: 02/18/2025
+ms.date: 03/11/2026
 ms.topic: reference
 author: SusanneWindfeldPedersen
 ms.reviewer: solsen
@@ -10,7 +10,7 @@ ms.reviewer: solsen
 [//]: # (START>DO_NOT_EDIT)
 [//]: # (IMPORTANT:Do not edit any of the content between here and the END>DO_NOT_EDIT.)
 [//]: # (Any modifications should be made in the .xml files in the ModernDev repo.)
-# RecordRef Data type
+# RecordRef data type
 > **Version**: _Available or changed with runtime version 1.0._
 
 References a record in a table.
@@ -45,9 +45,11 @@ The following methods are available on instances of the RecordRef data type.
 |[DeleteLink(Integer)](recordref-deletelink-method.md)|Deletes a specified link from a record in a table.|
 |[DeleteLinks()](recordref-deletelinks-method.md)|Deletes all of the links that have been added to a record.|
 |[Duplicate()](recordref-duplicate-method.md)|Duplicates the table that contains the RecordRef.|
-|[Field(Integer)](recordref-field-method.md)|Gets a FieldRef for the field that has the number FieldNo in the table that is currently selected. If no field has this number, the method returns an error.|
+|[Field(Integer)](recordref-field-integer-method.md)|Gets a FieldRef for the field that has the number FieldNo in the table that is currently selected. If no field has this number, the method returns an error.|
+|[Field(Text)](recordref-field-string-method.md)|Gets a FieldRef for the field that has the name FieldName in the table that is currently selected. If no field has this name, the method returns an error.|
 |[FieldCount()](recordref-fieldcount-method.md)|Gets the number of fields in the table that is currently selected or returns the number of fields that have been defined in a key. Returns an error if no table or no key is selected.|
-|[FieldExist(Integer)](recordref-fieldexist-method.md)|Determines if the field that has the number FieldNo exists in the table that is referred to by the RecordRef. Returns an error if no table is currently selected.|
+|[FieldExist(Integer)](recordref-fieldexist-integer-method.md)|Determines if the field that has the number FieldNo exists in the table that is referred to by the RecordRef. Returns an error if no table is currently selected.|
+|[FieldExist(Text)](recordref-fieldexist-string-method.md)|Determines if the field that has the name FieldName exists in the table that is referred to by the RecordRef. Returns an error if no table is currently selected.|
 |[FieldIndex(Integer)](recordref-fieldindex-method.md)|Gets the FieldRef of the field that has the specified index in the table that is referred to by the RecordRef.|
 |[FilterGroup([Integer])](recordref-filtergroup-method.md)|Changes the filter group that is being applied to the table. You can also use this method to return the number of the current filtergroup. You cannot return the number of the filtergroup and set a new filtergroup at the same time.|
 |[Find([Text])](recordref-find-method.md)|Finds a record in a table based on the values stored in the key fields.|
@@ -55,6 +57,7 @@ The following methods are available on instances of the RecordRef data type.
 |[FindLast()](recordref-findlast-method.md)|Finds the last record in a table based on the current key and filter.|
 |[FindSet([Boolean])](recordref-findset-boolean-method.md)|Finds a set of records in a table based on the current key and filter. FINDSET can only retrieve records in ascending order.|
 |[FindSet(Boolean, Boolean)](recordref-findset-boolean-boolean-method.md)|Finds a set of records in a table based on the current key and filter. FindSet can only retrieve records in ascending order.|
+|[FullyQualifiedName()](recordref-fullyqualifiedname-method.md)|Identifies the fully qualified name of the table.|
 |[Get(RecordId)](recordref-get-method.md)|Gets a record based on the ID of the record.|
 |[GetBySystemId(Guid)](recordref-getbysystemid-method.md)|Gets a record based on the ID of the record. The RecordRef must already be opened.|
 |[GetFilters()](recordref-getfilters-method.md)|Determines which filters have been applied to the table referred to by the RecordRef.|
@@ -80,7 +83,8 @@ The following methods are available on instances of the RecordRef data type.
 |[Name()](recordref-name-method.md)|Identifies the name of the table|
 |[Next([Integer])](recordref-next-method.md)|Steps through a specified number of records and retrieves a record.|
 |[Number()](recordref-number-method.md)|Gets the table ID (number) of the table that contains the record that was referred to by the RecordRef.|
-|[Open(Integer [, Boolean] [, Text])](recordref-open-method.md)|Causes a RecordRef variable to refer to a table, which is identified by its number in a particular company.|
+|[Open(Integer [, Boolean] [, Text])](recordref-open-integer-boolean-string-method.md)|Causes a RecordRef variable to refer to a table, which is identified by its number in a particular company.|
+|[Open(Text [, Boolean] [, Text])](recordref-open-string-boolean-string-method.md)|Causes a RecordRef variable to refer to a table, which is identified by its number in a particular company.|
 |[ReadConsistency()](recordref-readconsistency-method.md)|Gets a value indicating whether read consistency is enabled.|
 |[ReadIsolation([IsolationLevel])](recordref-readisolation-method.md)|Gets or sets the read isolation level.|
 |[ReadPermission()](recordref-readpermission-method.md)|Determines if you can read from a table.|
@@ -102,6 +106,7 @@ The following methods are available on instances of the RecordRef data type.
 |[SystemIdNo()](recordref-systemidno-method.md)|Gets the field number that is used by the SystemId field. The SystemId field is a system field that the platform adds to all table objects.|
 |[SystemModifiedAtNo()](recordref-systemmodifiedatno-method.md)|Gets the field number that is used by the SystemModifiedAt field. The SystemModifiedAt field is a system field that the platform adds to all table objects.|
 |[SystemModifiedByNo()](recordref-systemmodifiedbyno-method.md)|Gets the field number that is used by the SystemModifiedBy field. The SystemModifiedBy field is a system field that the platform adds to all table objects.|
+|[Truncate([Boolean])](recordref-truncate-method.md)|Deletes all records in a table that fall within a specified range, in an efficient maner. Keep in mind that Truncate allows for less concurrency than DeleteAll, as the entire table will be locked until the transaction is committed.|
 |[WritePermission()](recordref-writepermission-method.md)|Determines if you can write to a table.|
 
 [//]: # (IMPORTANT: END>DO_NOT_EDIT)

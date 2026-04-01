@@ -2,7 +2,7 @@
 title: "Get a List of Business Central Environments"
 description: "Describing how to get a list of Business Central environments when working with APIs."
 author: jswymer
-ms.date: 02/10/2022
+ms.date: 12/12/2025
 ms.topic: how-to
 ms.assetid: a0ac492d-e3c8-4a76-87b4-b469e08c58e7
 ms.author: jswymer
@@ -11,8 +11,6 @@ ms.reviewer: jswymer
 
 # Get a List of Business Central Environments
 
-[!INCLUDE[azure-ad-to-microsoft-entra-id](~/../shared-content/shared/azure-ad-to-microsoft-entra-id.md)]
-
 [!INCLUDE[prod_short](../includes/prod_short.md)] can have multiple environments. When working with a Business Central API, the name of the environment being connected to must to go into the endpoint URI. You can retrieve a list of environments deployed on the tenant by calling the environments endpoint as described in this article.
 
 ## Request
@@ -20,7 +18,7 @@ ms.reviewer: jswymer
 The HTTP request to this API must include the Authorization HTTP header, and the value must be an access token. For more information about how to obtain an access token, see [Getting an access token](../administration//administration-center-api.md).
 
 ```json
-GET https://api.businesscentral.dynamics.com/environments/v1.1
+GET https://api.businesscentral.dynamics.com/environments/v1.2
 ```
 
 ## Response
@@ -38,6 +36,7 @@ Returns a wrapped array of environments.
             "countryCode": string, // Country or region where the environment is deployed
             "webServiceUrl": string, // Url to access the environment's service API
             "webClientLoginUrl": string // URL to login page of the environment
+            "ringName": string // The name of the ring in which this environment is deployed
         }
     ]
 }

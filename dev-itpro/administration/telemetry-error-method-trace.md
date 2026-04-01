@@ -15,8 +15,6 @@ ms.reviewer: jswymer
 
 [!INCLUDE[2022_releasewave1.md](../includes/2022_releasewave1.md)]
 
-[!INCLUDE[azure-ad-to-microsoft-entra-id](~/../shared-content/shared/azure-ad-to-microsoft-entra-id.md)]
-
 When a user gets an error dialog while working in [!INCLUDE[prod_shoirt](../includes/prod_short.md)], a telemetry signal is emitted, which can be logged in an [!INCLUDE[appInsights](../includes/azure-appinsights-name.md)] resource. 
 
 This telemetry data let's you identify and analyze calls to the `Error` method from AL code. You can also set up alerts in [!INCLUDE[appInsights](../includes/azure-appinsights-name.md)] to get notified if many users experience errors.
@@ -58,6 +56,10 @@ The following table explains other custom dimensions that are common to all erro
 |componentVersion|The version number of the component that emits telemetry (see the component dimension)|
 |environmentName|The name of the tenant environment. See [Managing Environments](tenant-admin-center-environments.md). This dimension isn't included for [!INCLUDE[prod_short.md](../includes/prod_short.md)] on-premises environments.|
 |environmentType|The environment type for the tenant, such as **Production**, **Sandbox**, **Trial**. See [Environment Types](tenant-admin-center-environments.md#types-of-environments)|
+|extensionName| [!INCLUDE[extensionName](../includes/include-telemetry-dimension-extension-name.md)] |
+|extensionPublisher| [!INCLUDE[extensionPublisher](../includes/include-telemetry-dimension-extension-publisher.md)] |
+|extensionVersion| [!INCLUDE[extensionVersion](../includes/include-telemetry-dimension-extension-version.md)] |
+|extensionId| [!INCLUDE[extensionId](../includes/include-telemetry-dimension-extension-id.md)] |
 |telemetrySchemaVersion|The version of the [!INCLUDE[prod_short](../developer/includes/prod_short.md)] telemetry schema|
 
 <!--

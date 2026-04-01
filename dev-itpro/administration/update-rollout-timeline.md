@@ -5,7 +5,7 @@ author: jswymer
 ms.topic: article
 ms.devlang: al
 ms.search.keywords: administration, tenant, admin, environment, sandbox, update, flag, keys
-ms.date: 03/31/2025
+ms.date: 02/11/2026
 ms.author: jswymer
 ms.reviewer: jswymer
 ---
@@ -28,7 +28,7 @@ There are two major update cycles per year, with major releases every April and 
 
 ### Preview period
 
-The preview period allows for testing of the new functionality before the version is made available as update to your environment. Administrators can create a Sandbox environment from the [!INCLUDE [prodadmincenter](../developer/includes/prodadmincenter.md)] on the new version, for example to try out new functionality or test compatibility of extensions in a cloud environment. This period typically starts a month before the release of the new major version, that is, every March and September. Learn more in [Preparing for major updates with preview environments](preview-environments.md).
+The preview period allows for testing new functionality before the version is made available as an update to your environment. Administrators can create a sandbox environment from the [!INCLUDE [prodadmincenter](../developer/includes/prodadmincenter.md)] on the preview version or update an existing sandbox to the preview version. A preview version lets you try out new functionality or test compatibility of extensions in a cloud environment. For regular tenants, this period starts a month before the release of the new major version, that is, every March and September. Tenants with the [Partner Sandbox](environment-types.md#partnersandbox) license have access to the [early access preview](preview-environments.md), which runs alongside the entire update period. Learn more in [Preparing for major updates with preview environments](preview-environments.md).
 
 ### Update period
 
@@ -45,11 +45,14 @@ When a new version is available as update on the environment, [Notification reci
 The grace period starts when the update period ends and lasts one month. It occurs every September for the update period starting in April and every March for the update period starting in October. During the grace period, you can't reschedule an update to a later date or to a target version within the environment's current major version. Microsoft automatically reschedules unsuccessful environment updates to be reattempted seven days later. Administrators can only reschedule this attempt to an earlier date or to a different target version within the next major version. To ensure the environment update succeeds during the grace period, Microsoft alerts administrators in the [!INCLUDE [prodadmincenter](../developer/includes/prodadmincenter.md)] and might send in-product notifications to end users about the upcoming enforced update period. Learn more in [When Microsoft can't update apps or per-tenant extensions (PTEs)](../developer/app-maintain.md#when-microsoft-cant-update-apps-or-ptes).
 
 > [!TIP]
-> We recommend that you keep any apps and per-tenant extensions ready to update at any given time, and that you actively test compatibility. Developers can get tips and guidance in the developer docs here: [Maintain AppSource Apps and Per-Tenant Extensions](../developer/app-maintain.md). Admins can install, update, and uninstall apps in the [!INCLUDE [prodadmincenter](../developer/includes/prodadmincenter.md)] as described here: [Managing Apps](tenant-admin-center-manage-apps.md).
+> We recommend that you keep any apps and per-tenant extensions ready to update at any given time, and that you actively test compatibility. Developers can get tips and guidance in the developer docs here: [Maintain Marketplace Apps and Per-Tenant Extensions](../developer/app-maintain.md). Admins can install, update, and uninstall apps in the [!INCLUDE [prodadmincenter](../developer/includes/prodadmincenter.md)] as described here: [Managing Apps](tenant-admin-center-manage-apps.md).
 
 ### Enforced update period
 
 The enforced period starts when the grace period ends. During this period, any extensions causing the update to the next major version to fail, for example, because of compatibility issues, might be automatically uninstalled from the environment so that the update succeeds. Data belonging to these uninstalled extensions isn't deleted from the environment and can be recovered by installing a compatible extension version after the update succeeds. Learn more in [When Microsoft can't update apps or PTEs](../developer/app-maintain.md#when-microsoft-cant-update-apps-or-ptes).
+
+> [!IMPORTANT]
+> It's not possible to [restore](tenant-admin-center-backup-restore.md) an environment to a version that is in its Grace or Enforced update period after an update to a later version has succeeded.
 
 ## Minor updates
 
@@ -66,7 +69,7 @@ An environment update completes when it succeeds, fails, or is canceled because 
 An environment might fail to update for various reasons, such as:
 
 - Per-tenant extension compatibility issues  
-- AppSource app compatibility issues  
+- Marketplace app compatibility issues  
 - Internal update issues  
 
 When an update fails or is canceled, the environment restores to the original application version so users can connect to it again. The environment is rescheduled for a new update attempt in seven days. To resolve the issue and retry the update, change the update date to an earlier or current date.
@@ -120,9 +123,7 @@ Microsoft monitors each update of an environment. If we detect any errors during
 
 ## Service updates
 
-The service components apply to multiple environments, such as all tenants in a region. So Microsoft schedules those updates to a time when traffic is lower in each region, typically during the evening or night. Typically, these service updates are transparent to any users, as the service is designed to manage traffic in a way that any users still working in [!INCLUDE [prod_short](../includes/prod_short.md)] aren't affected by these service updates.  
-
-These updates don't add or remove functionality, and they're transparent to business users.
+The service components apply to multiple environments, such as all tenants in a region. Microsoft schedules service updates when regional traffic is lower, typically in the evening or at night. Typically, business users don't notice service updates because the service manages traffic so users working in [!INCLUDE [prod_short](../includes/prod_short.md)] aren't affected. These updates don't add or remove functionality.
 
 ## Related information
 

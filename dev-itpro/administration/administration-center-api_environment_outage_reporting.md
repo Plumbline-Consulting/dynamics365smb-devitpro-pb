@@ -6,91 +6,103 @@ ms.topic: reference
 ms.devlang: al
 ms.reviewer: solsen
 ms.search.keywords: administration, tenant, admin, environment, telemetry
-ms.date: 02/24/2023
+ms.date: 11/17/2025
 ---
 
-# Business Central Admin Center API - Environment Outage Reporting
+# Business Central Admin Center API - Environment outage reporting
 
-Enables the ability to report that an environment isn't accessible and may require attention
+Enables the ability to report that an environment isn't accessible and might require attention.
 
-## Get Outage Types
+## Get outage types
 
-Gets the list of supported categories of outages
+Gets the list of supported categories of outages.
 
+```HTTP
+GET /admin/{apiVersion}/support/outageTypes
 ```
-GET /admin/v2.24/support/outageTypes
-```
+
+### Route parameters
+
+`apiVersion` - the version of the Admin Center API. Currently, the latest version is [!INCLUDE[admincenterapiversion](../developer/includes/admincenterapiversion.md)]
 
 ### Response
 
-Returns a list with information about the supported outage types for reporting
+Returns a list with information about the supported outage types for reporting.
 
-```
+```JSON
 {
   "value": [
     {
-      "outageType": string, // The identifier of the outage type. 
+      "outageType": string, // The identifier of the outage type.
       "name": string, // A displayable name for the outage type.
       "description": string, // A displayable description for the outage type.
     }]
 }
 ```
 
-### Expected Error Codes
+### Expected error codes
 
 `cannotGetOutages` - an unhandled error occurred when trying to acquire the outage types
 
 `tenantNotFound` - the calling tenant information couldn't be found
 
-## Get Outage Questions
+## Get outage questions
 
-Gets the list of metadata about questions that need to be answered when reporting an environment outage
+Gets the list of metadata about questions that need to be answered when reporting an environment outage.
 
+```HTTP
+GET /admin/{apiVersion}/support/outageTypes/{outageType}/outageQuestions
 ```
-GET /admin/v2.24/support/outageTypes/{outageType}/outageQuestions
-```
+
+### Route parameters
+
+`apiVersion` - the version of the Admin Center API. Currently, the latest version is [!INCLUDE[admincenterapiversion](../developer/includes/admincenterapiversion.md)]
 
 ### Response
 
-Returns the list of question metadata for the provided outage type
+Returns the list of question metadata for the provided outage type.
 
-```
+```JSON
 {
   "value": [
     {
       "sequence": int, // The order in which the question should be answered
       "parentId": int, // The identifier of a toggle question whose value indicates if this question should be shown. that is if the parent value is 'true' then this question should also be answered
-      "id": string, // The unique identifier of the question 
+      "id": string, // The unique identifier of the question
       "defaultValue": string, // The default value of the question if it has no value
       "questionType": string, // (enum | "None", "Toggle", "TextField", "DateTime")
-      "questionText": string, // The question's text to display 
+      "questionText": string, // The question's text to display
       "required": bool, // Indicates if the question must have a value
       "onText": string, // Toggle type only - display text for when the question is toggled to 'true'
       "offText": string, // Toggle type only - display text for when the question is toggled to 'false'
       "multiline": bool // Indicates if the value is intended to contain multi-line text
     }]
-}   
+}
 ```
 
-### Expected Error Codes
+### Expected error codes
 
-`cannotGetOutageQuestions` - an unhandled error occurred when trying to acquire the outage types
+`cannotGetOutageQuestions` - an unhandled error occurred when trying to acquire the outage types.
 
-`tenantNotFound` - the calling tenant information couldn't be found
+`tenantNotFound` - the calling tenant information couldn't be found.
 
-## Get Reported Outages
+## Get reported outages
 
-Gets the list of outages that have been previously reported 
+Gets the list of outages that were previously reported.
 
+```HTTP
+GET /admin/{apiVersion}/support/reportedoutages
 ```
-GET /admin/v2.24/support/reportedoutages
-```
+
+### Route parameters
+
+`apiVersion` - the version of the Admin Center API. Currently, the latest version is [!INCLUDE[admincenterapiversion](../developer/includes/admincenterapiversion.md)]
 
 ### Response
 
-Returns the list of outages reported across all environments for the calling tenant
+Returns the list of outages reported across all environments for the calling tenant.
 
-```
+```JSON
 {
   "value": [
     {
@@ -107,40 +119,43 @@ Returns the list of outages reported across all environments for the calling ten
 }
 ```
 
-### Expected Error Codes
+### Expected error codes
 
-`cannotGetReportedOutages` - an unhandled error occurred when trying to acquire the reported outages
+`cannotGetReportedOutages` - an unhandled error occurred when trying to acquire the reported outages.
 
-`tenantNotFound` - the calling tenant information couldn't be found
+`tenantNotFound` - the calling tenant information couldn't be found.
 
-## Report Outage
+## Report outage
 
-Initiates an outage report indicating that an environment isn't accessible
+Initiates an outage report indicating that an environment isn't accessible.
 
-```
+```HTTP
 Content-Type: application/json
-POST /admin/v2.24/support/applications/{applicationFamily}/environments/{environmentName}/reportoutage
+POST /admin/{apiVersion}/support/applications/{applicationFamily}/environments/{environmentName}/reportoutage
 ```
 
-### Route Parameters
+### Route parameters
 
-`applicationFamily` - Family of the environment's application (for example, "BusinessCentral")
+`apiVersion` - version of the Admin Center API. Currently, the latest version is [!INCLUDE[admincenterapiversion](../developer/includes/admincenterapiversion.md)]
 
-`environmentName` - Name of the targeted environment
+`applicationFamily` - the family of the environment's application (for example, "BusinessCentral").
+
+`environmentName` - the name of the targeted environment.
 
 ### Body
 
-```
+```JSON
 {
   "outageType": string, // The category of the outage being reported.
   "outageQuestionAnswers": [{ // The collection of answers to the questions associated with the outage type.
     "id": string, // The identifier of the question being answered.
     "answer": string // The answered value of the question.
   }],
-  ("contact": string), // (Optional) - The name of the person whose to contact with updates on the outage report
+  ("firstName": string), // (Optional) - The first name of the person whose to contact with updates on the outage report
+  ("lastName": string), // (Optional) - The last name of the person whose to contact with updates on the outage report
   ("email": string), // (Optional) - An email to contact with updates on the outage report
-  ("phone": string), // (Optional) - A phone number to contact with updates on the outage report
-  ("appVersion": string), // (Optional) - If known, the version of the targeted environment's application 
+  ("phone": string), // (Optional) - A phone number to contact with updates on the outage report. It should contain only numbers, use 00 instead of + for international number prefix
+  ("appVersion": string), // (Optional) - If known, the version of the targeted environment's application
   ("platformVersion": string) //(Optional) - If known, the version of the targeted environment's platform
 }
 ```
@@ -149,25 +164,27 @@ POST /admin/v2.24/support/applications/{applicationFamily}/environments/{environ
 
 Returns information about the created outage report
 
-```
+```JSON
 {
     "creationStatus": string, // The status of the request to create an outage report. (enum | "Unknown", "Created", "UpdatedExisting", "Error")
     "msaasCaseNumber": string, // The identifier of the MSaaS ticket that is associated with the outage report.
 }
 ```
 
-### Expected Error Codes
+### Expected error codes
 
-`requestBodyRequired` - the request body must be provided
+`requestBodyRequired` - the request body must be provided,
 
-`environmentNotFound` - the targeted environment couldn't be found
+`environmentNotFound` - the targeted environment couldn't be found.
 
    - target: {applicationFamily}/{environmentName}
 
-`failedToReportOutage` - an unhandled error occurred when trying to report the outage
+`failedToReportOutage` - an unhandled error occurred when trying to report the outage.
+
 
 ## Related information
 
-[The Business Central Administration Center API](administration-center-api.md)  
-[Manage Apps](tenant-admin-center-manage-apps.md)  
-[Microsoft Dynamics 365 Business Central Server Administration Tool](administration-tool.md) 
+[The Business Central Administration Center API](administration-center-api.md)
+[Manage Apps](tenant-admin-center-manage-apps.md)
+[Microsoft Dynamics 365 Business Central Server Administration Tool](administration-tool.md)
+

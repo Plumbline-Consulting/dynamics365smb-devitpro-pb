@@ -19,8 +19,8 @@ The template repositories to use as starting point are:
 
 - To create a **per-tenant extension**, here's your starting point
 **[https://github.com/microsoft/AL-Go-PTE](https://github.com/microsoft/AL-Go-PTE)** is the GitHub repository template for per-tenant extensions.
-- To create an **AppSource app**, here's your starting point
-**[https://github.com/microsoft/AL-Go-AppSource](https://github.com/microsoft/AL-Go-AppSource)** is the GitHub repository template for AppSource apps. 
+- To create a **Marketplace app**, here's your starting point
+**[https://github.com/microsoft/AL-Go-AppSource](https://github.com/microsoft/AL-Go-AppSource)** is the GitHub repository template for Marketplace apps. 
 
 To get started with AL-Go, try out the [AL-Go for GitHub Workshop](https://github.com/microsoft/AL-Go/blob/main/Workshop/Index.md). All documentation for AL-Go for GitHub is maintained and updated in the repository. Go to [AL-Go for GitHub](https://github.com/microsoft/AL-Go/blob/main/README.md) to see the latest documentation.
 
@@ -30,10 +30,3 @@ To get started with AL-Go, try out the [AL-Go for GitHub Workshop](https://githu
 ## Related information
 
 [Developing extensions in AL](../developer/devenv-dev-overview.md)  
-[AL-Go for GitHub](https://freddysblog.com/2022/04/26/al-go-for-github/)  
-[Migrating to AL-Go for GitHub](https://freddysblog.com/2022/04/27/migrating-to-al-go-for-github/)  
-[Structuring your AL-Go for GitHub repositories](https://freddysblog.com/2022/04/28/structuring-your-github-repositories/)  
-[Preview of future AL-Go for GitHub functionality](https://freddysblog.com/2022/05/02/al-go-for-github-preview-bits/)  
-[Branching strategies for your AL-Go for GitHub repo](https://freddysblog.com/2022/05/03/branching-strategies-for-your-al-go-for-github-repo/)  
-[Deployment strategies and AL-Go for GitHub](https://freddysblog.com/2022/05/06/deployment-strategies-and-al-go-for-github/)  
-[Secrets in AL-Go for GitHub](https://freddysblog.com/2022/05/14/secrets-in-al-go-for-github/)  

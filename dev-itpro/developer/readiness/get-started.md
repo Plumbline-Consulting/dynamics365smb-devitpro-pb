@@ -11,8 +11,6 @@ ms.collection: get-started
 
 # Get started with building apps
 
-[!INCLUDE[azure-ad-to-microsoft-entra-id](~/../shared-content/shared/azure-ad-to-microsoft-entra-id.md)]
-
 [!INCLUDE [prod_long](../includes/prod_long.md)] is a business management solution that helps companies connect their services and operations to streamline business processes, improve customer interactions and make better decisions. With this modern business platform, you have the convenience to quickly tailor, extend, and build applications so that they fit your specific needs with little to no code development.
 
 Build a business app for a specific industry, process, or department such as HR, finance, marketing, or operations. Then, publish your app to [the Microsoft commercial marketplace](https://appsource.microsoft.com/partners), where customers can find your app, try it and get in touch with you. For more information, see [What is the Microsoft commercial marketplace?](/azure/marketplace/overview).  
@@ -115,8 +113,8 @@ Before you submit, we recommend that you review the [technical validation checkl
 
 [The SMB opportunity for app publishers](opportunity-app-publisher.md)  
 [The lifecycle of apps and extensions for [!INCLUDE [prod_short](../includes/prod_short.md)]](../devenv-app-life-cycle.md)  
-[Update lifecycle for AppSource apps FAQ](../devenv-update-app-life-cycle-faq.md)  
-[Maintain AppSource apps and per-tenant extensions in [!INCLUDE [prod_short](../includes/prod_short.md)] Online](../app-maintain.md)  
+[Update lifecycle for Marketplace apps FAQ](../devenv-update-app-life-cycle-faq.md)  
+[Maintain Marketplace apps and per-tenant extensions in [!INCLUDE [prod_short](../includes/prod_short.md)] Online](../app-maintain.md)  
 [Microsoft responsibilities for apps on [!INCLUDE [prod_short](../includes/prod_short.md)] online](../../deployment/microsoft-responsibilities.md)  
 
 [!INCLUDE [footer-banner](../../includes/footer-banner.md)]

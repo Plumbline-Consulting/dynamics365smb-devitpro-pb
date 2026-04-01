@@ -31,7 +31,7 @@ The Sales Order Agent automates sales order processing from customer emails usin
 
 This update introduces billing for the agent. Charges are based on Microsoft Copilot Studio messages used for AI interactions and tasks. Learn more in [Manage consumption-based billing for agent capabilities](../administration/tenant-admin-center-manage-consumption-billing.md).  
 
-Learn how to set up and use Sales Order agent in [Sales Order Agent overview](/dynamics365/business-central/sales-order-agent) or follow its release plan at [Use Sales Order Agent to automate sales order-taking](/dynamics365/release-plan/2025wave1/smb/dynamics365-business-central/use-copilot-agent-capabilities-automate-sales-order-taking-process).
+Learn how to set up and use Sales Order agent in [Sales Order Agent overview](/dynamics365/business-central/sales-order-agent) or follow its release plan at [Use Sales Order Agent to automate sales order-taking](/dynamics365/release-plan/2025wave1/smb/dynamics365-business-central/planned-features).
 
 ### Autofill fields
 
@@ -87,11 +87,11 @@ When all the links have been created, remove the "Release Plan URL" column from 
 | Copilot and AI            | [Enhance purchase order line matching with Copilot](/dynamics365/release-plan/2025wave1/smb/dynamics365-business-central/enhance-purchase-order-line-matching-copilot) |
 |                           | [Summarize with Copilot](/dynamics365/release-plan/2025wave1/smb/dynamics365-business-central/summarize-record-copilot) |
 |                           | [Autofill fields with Copilot](/dynamics365/release-plan/2025wave1/smb/dynamics365-business-central/autofill-fields-copilot) |
-|                           | [Use Sales Order Agent to automate sales order-taking](/dynamics365/release-plan/2025wave1/smb/dynamics365-business-central/use-copilot-agent-capabilities-automate-sales-order-taking-process) |
+|                           | [Use Sales Order Agent to automate sales order-taking](/dynamics365/release-plan/2025wave1/smb/dynamics365-business-central/planned-features) |
 | Country and regional      | [Post cash documents to projects in Czech localization](/dynamics365/release-plan/2025wave1/smb/dynamics365-business-central/post-cash-documents-projects-czech-localization) |
 |                           | [Add more text in cash documents in Czech localization](/dynamics365/release-plan/2025wave1/smb/dynamics365-business-central/add-more-text-cash-documents-czech-localization) |
 |                           | [Use Peppol PINT A-NZ format for e-documents in AU and NZ](/dynamics365/release-plan/2025wave1/smb/dynamics365-business-central/use-peppol-a-nz-format-e-documents-australia-new-zealand) |
-|                           | [Calculate GST on recurring journals for India](/dynamics365/release-plan/2025wave1/smb/dynamics365-business-central/calculate-gst-recurring-journals-india) |
+|                           | [Calculate GST on recurring journals for India](/dynamics365/release-plan/2025wave1/smb/dynamics365-business-central/planned-features) |
 |                           | [Showcase Business Central with Czech localization demos](/dynamics365/release-plan/2025wave1/smb/dynamics365-business-central/showcase-business-central-czech-localization-demos) |
 |                           | [Use VAT Return to report VAT in local and functional currencies in Czech Republic](/dynamics365/release-plan/2025wave1/smb/dynamics365-business-central/use-vat-return-report-vat-local-functional-currencies-czech-republic) |
 |                           | [Use modern search to access data in Czech localization](/dynamics365/release-plan/2025wave1/smb/dynamics365-business-central/use-modern-search-access-data-czech-localization) |
@@ -112,7 +112,7 @@ When all the links have been created, remove the "Release Plan URL" column from 
 |                           | [Search, navigate and use app symbols as context for GitHub Copilot](/dynamics365/release-plan/2025wave1/smb/dynamics365-business-central/search-navigate-use-app-symbols-as-context-github-copilot) |
 |                           | [View build metadata in Extension Management page](/dynamics365/release-plan/2025wave1/smb/dynamics365-business-central/view-build-metadata-extension-management-page) |
 |                           | [Work with multiline strings in AL](/dynamics365/release-plan/2025wave1/smb/dynamics365-business-central/work-multiline-strings-al) |
-|                           | [Self-service App Key Vault onboarding for AppSource apps](/dynamics365/release-plan/2025wave1/smb/dynamics365-business-central/self-service-app-key-vault-onboarding-appsource-apps) |
+|                           | [Self-service App Key Vault onboarding for Marketplace apps](/dynamics365/release-plan/2025wave1/smb/dynamics365-business-central/self-service-app-key-vault-onboarding-appsource-apps) |
 |                           | [Use new IncStr parameter to change integers by more than 1 in string variables](/dynamics365/release-plan/2025wave1/smb/dynamics365-business-central/use-new-incstr-parameter-change-integers-more-than-1-string-variables) |
 |                           | [Convert simple type values to text using new ToText method](/dynamics365/release-plan/2025wave1/smb/dynamics365-business-central/convert-simple-type-values-text-using-new-totext-method) |
 |                           | [Create lists and dictionaries of interfaces in AL](/dynamics365/release-plan/2025wave1/smb/dynamics365-business-central/create-list-dictionary-interfaces-al) |

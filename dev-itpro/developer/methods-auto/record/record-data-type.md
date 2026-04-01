@@ -2,7 +2,7 @@
 title: "Record data type"
 description: "Is a complex data type."
 ms.author: solsen
-ms.date: 02/18/2025
+ms.date: 03/11/2026
 ms.topic: reference
 author: SusanneWindfeldPedersen
 ms.reviewer: solsen
@@ -10,7 +10,7 @@ ms.reviewer: solsen
 [//]: # (START>DO_NOT_EDIT)
 [//]: # (IMPORTANT:Do not edit any of the content between here and the END>DO_NOT_EDIT.)
 [//]: # (Any modifications should be made in the .xml files in the ModernDev repo.)
-# Record Data type
+# Record data type
 > **Version**: _Available or changed with runtime version 1.0._
 
 Is a complex data type.
@@ -56,6 +56,7 @@ The following methods are available on instances of the Record data type.
 |[FindLast()](record-findlast-method.md)|Finds the last record in a table based on the current key and filter.|
 |[FindSet([Boolean])](record-findset-boolean-method.md)|Finds a set of records in a table based on the current key and filter.|
 |[FindSet(Boolean, Boolean)](record-findset-boolean-boolean-method.md)|Finds a set of records in a table based on the current key and filter.|
+|[FullyQualifiedName()](record-fullyqualifiedname-method.md)|Gets the fully qualified name of a table.|
 |[Get([Any,...])](record-get-method.md)|Gets a record based on values stored in primary key fields.|
 |[GetAscending(Any)](record-getascending-method.md)|Gets the sort order for the records returned. You can use GETASCENDING to identify the sort order of the specified field because fields can be sorted in ascending or descending order. For example, you can read data from an ODATA web service where the data is sorted in ascending order on the Name field but in descending order on the City field.|
 |[GetBySystemId(Guid)](record-getbysystemid-method.md)|Gets a record by its SystemId.|
@@ -128,6 +129,7 @@ The following methods are available on instances of the Record data type.
 |[TestField(Any, Any, ErrorInfo)](record-testfield-joker-joker-errorinfo-method.md)|Tests whether the contents of a field match a given value.|
 |[TransferFields(var Record [, Boolean])](record-transferfields-table-boolean-method.md)|Copies all matching fields in one record to another record.|
 |[TransferFields(var Record, Boolean, Boolean)](record-transferfields-table-boolean-boolean-method.md)|Copies all matching fields in one record to another record.|
+|[Truncate([Boolean])](record-truncate-method.md)|Deletes all records in a table that fall within a specified range, in an efficient maner. Keep in mind that Truncate allows for less concurrency than DeleteAll, as the entire table will be locked until the transaction is committed.|
 |[Validate(Any [, Any])](record-validate-method.md)|Calls the OnValidate trigger for the field that you specify.|
 |[WritePermission()](record-writepermission-method.md)|Determines whether a user can write to a table. This method can test for both full write permission and partial write permission that has been granted with a security filter. A write permission consists of Insert, Delete, and Modify permissions.|
 

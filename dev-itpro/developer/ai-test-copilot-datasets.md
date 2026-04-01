@@ -4,7 +4,7 @@ description: Learn how to create datasets for AI tests in Business Central.
 author: SusanneWindfeldPedersen
 ms.author: solsen
 ms.topic: concept-article
-ms.date: 05/01/2025
+ms.date: 03/13/2026
 ms.update-cycle: 180-days
 ms.collection:
   - get-started
@@ -67,7 +67,7 @@ tests:
 
 ## Get data for your tests
 
-When creating AI tests, the data you use is as important as the AI features you're testing. Quality, consistency, and realism of data are critical for ensuring that your tests are comprehensive and meaningful.
+When you create AI tests, the data you use is as important as the AI features you're testing. Quality, consistency, and realism of data are critical for ensuring that your tests are comprehensive and meaningful.
 
 > [!TIP]
 > Learn more in [Best practices](ai-test-copilot-bestpractices.md) about other considerations when creating datasets.

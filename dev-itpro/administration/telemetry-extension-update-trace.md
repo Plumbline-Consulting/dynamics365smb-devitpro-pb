@@ -13,8 +13,6 @@ ms.reviewer: jswymer
 
 **INTRODUCED IN:** Exception telemetry was introduced in Business Central 2020 release wave 1, version 16.2. Upgrade tag telemetry was introduced in Business Central 2021 release wave 1, version 18.1.
 
-[!INCLUDE[azure-ad-to-microsoft-entra-id](~/../shared-content/shared/azure-ad-to-microsoft-entra-id.md)]
-
 Extension upgrade telemetry gathers information about operations that can occur during extension upgrades:
 
 - Upgrade code failures
@@ -29,7 +27,7 @@ Extension upgrade telemetry gathers information about operations that can occur 
 
     The telemetry provides information about calls to the AL methods `HasUpgradeTag` and `SetUpgradeTag` from upgrade codeunits. These methods are provided by codeunit **9999 Upgrade Tag** in the System Application extension. Upgrade tags are used to control when upgrade code is run. For more information, see [Using upgrade tags to control upgrade code](../developer/devenv-upgrading-extensions.md#using-upgrade-tags-to-control-upgrade-code). This data can help you identify, troubleshoot, and resolve issues in upgrade code.
 
-The telemetry helps you troubleshoot and resolve code issues that block the data upgrade of per-tenant and AppSource extensions.
+The telemetry helps you troubleshoot and resolve code issues that block the data upgrade of per-tenant and Marketplace extensions.
 
 ## Extension Update Failed: exception raised in extension
 

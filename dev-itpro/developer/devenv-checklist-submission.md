@@ -1,11 +1,11 @@
 ---
 title: Technical validation checklist
-description: Describes the steps you must go through to successfully submit your app to AppSource using AppSourceCop for Business Central.
+description: Describes the steps you must go through to successfully submit your app to Marketplace using AppSourceCop for Business Central.
 author: SusanneWindfeldPedersen
 ms.date: 01/30/2025
 ms.reviewer: jswymer
 ms.topic: checklist
-ms.author: freddyk
+ms.author: solsen
 ms.custom: sfi-ropc-nochange
 ---
 
@@ -18,7 +18,7 @@ Below you find a checklist of all requirements that you **must meet before submi
 
 ## Technical Validation Checklist
 
-If you don't meet these mandatory requirements, your extension fails validation. To get code validation helping you bring your extension package to AppSource, you can enable the **AppSourceCop** code analyzer. Learn more in [Using the code analysis tool](devenv-using-code-analysis-tool.md).
+If you don't meet these mandatory requirements, your extension fails validation. To get code validation helping you bring your extension package to Marketplace, you can enable the **AppSourceCop** code analyzer. Learn more in [Using the code analysis tool](devenv-using-code-analysis-tool.md).
 
 |Requirement|Example/Guidance|
 |-----------|----------------|
@@ -44,7 +44,7 @@ If you don't meet these mandatory requirements, your extension fails validation.
 |The extension submitted must not be a runtime package.|[Creating Runtime Packages](devenv-creating-runtime-packages.md)|
 |The extension submitted must use translation files.|[Working with Translation Files](devenv-work-with-translation-files.md)|
 |The extension submitted must specify the `Application` manifest property.|The `Application` manifest property is required in order to compute the minimum release of Business Central targeted by your submission. Learn more in [Computation of releases for validation](#against-which-releases-of-business-central-is-your-submission-validated)|
-|The extension submitted should have a unique `AppId`.| Every extension should have a unique `AppId` and it's not allowed to submit PTEs and AppSource apps with the same `AppId`. Also see [Constraints on extension types](devenv-extension-types-and-scope.md#constraints-on-extension-types).
+|The extension submitted should have a unique `AppId`.| Every extension should have a unique `AppId` and it's not allowed to submit PTEs and Marketplace apps with the same `AppId`. Also see [Constraints on extension types](devenv-extension-types-and-scope.md#constraints-on-extension-types).
 
 ## Technical validation performed by the Business Central services
 
@@ -63,9 +63,9 @@ The technical validation is fully automated and validates the requirements defin
 
 Once the extension has passed these first validation steps, the minimum release for your submission is computed as described in [Computation of Releases for Validation](devenv-checklist-submission.md#against-which-releases-of-business-central-is-your-submission-validated).
 
-For **each country and each release** targeted by your submission, the following steps are run **for each extension** in the submission:
+For **each country/region and each release** targeted by your submission, the following steps are run **for each extension** in the submission:
 
-1. If the extension with the same version has already been validated for the country, further validation for this extension is skipped.
+1. If the extension with the same version has already been validated for the country/region, further validation for this extension is skipped.
 2. The set of dependencies for your extension is resolved. **Any unresolved dependencies will cause the submission to be rejected. If you include extensions created by Microsoft in your submission, it will also be rejected.**
 
 > [!Note]  
@@ -76,12 +76,12 @@ For **each country and each release** targeted by your submission, the following
 5. The extension is tested against the resolved baselines using the AppSourceCop analyzer. If any **violations or breaking changes are identified, the submission is rejected.**
 6. If the **runtime version of the extension is not supported by the release targeted, the submission is rejected.**
 
-Additionally, if the extension submitted isn't the latest version and a higher version is available in the AppSource marketplace, additional validation is performed:
+Additionally, if the extension submitted isn't the latest version and a higher version is available in the Marketplace, additional validation is performed:
 
 1. The next version of your extension and its dependencies are resolved using the [App Management API](../administration/appmanagement/app-management-api.md).
 2. The next version of your extension is tested against the version you submitted using the AppSourceCop analyzer. If any **violations or breaking changes are identified, the submission is rejected.**  
 
-If all extensions in the submission succeed the validation for each country and release without errors, **the submission is accepted.**.
+If all extensions in the submission succeed the validation for each country/region and release without errors, **the submission is accepted.**.
 
 ## Running technical validation yourself
 
@@ -93,23 +93,53 @@ $validationResults = Run-AlValidation `
     -installApps @( "path/url to your foreign dependencies, apps which will not be part of the validation (or blank if this is the first)" ) `
     -previousApps @( "path/url to your previous version of the .app files (or blank if this is the first)" ) `
     -apps @( "path/url to the new version of the .app files" ) `
-    -countries @( "countries you want to validate against (f.ex. us,ca)" ) `
+    -countries @( "countries/regions you want to validate against (f.ex. us,ca)" ) `
     -affixes @( "affixes you own (f.ex. fab,con)" ) `
-    -supportedCountries @( "supported countries (f.eks. us,ca)" )
+    -supportedCountries @( "supported countries/regions (f.eks. us,ca)" )
 $validationResults | Write-Host -ForegroundColor Red
 ```
 
-All array parameters can also be specified as a comma-separated string. Learn more in this blog post [Run-AlValidation and Run-AlCops](https://freddysblog.com/2020/12/03/run-alvalidation-and-run-alcops/).
+All array parameters can also be specified as a comma-separated string. AppSourceCop is run for each country/region and output is collected. Publishing and install/upgrade errors surface as exceptions and break the validation. You can then work on eliminating these exceptions. When the `$validationResult` is empty, then no validation errors are found.
+
+### Parameters
+
+The following parameters can be used with the `Run-AlValidation` command:
+
+- `-installApps`: Specify the path or URL to your foreign dependencies, apps which will not be part of the validation (or blank if this is the first).
+- `-previousApps`: Specify the path or URL to your previous version of the .app files (or blank if this is the first).
+- `-apps`: Specify the path or URL to the new version of the .app files.
+- `-countries`: Specify the countries/regions you want to validate against (for example, us,ca).
+- `-affixes`: Specify the affixes you own (for example, fab,con).
+- `-supportedCountries`: Specify the supported countries/regions (for example, us,ca).
+- `-vsixFile`: Specify the AL Language Extension version to use.
+- `-skipVerification`: Skip verification of code signing certificates.
+
+`-previousApps` and `-apps` can be an array of apps or a comma-separated string with app filenames. The app filenames can also be .zip files with .app files inside, a url to an .app file or a .zip file.
+
+### Run-AlCops
+
+`Run-AlCops` is used from `Run-AlValidation` every time AppSourceCop needs to be run, but it can also be used seperately. `Run-AlCops` needs a running docker container to perform the validation in. The function can be called as follows:
+
+```powershell
+$validationResults = Run-AlCops `
+    -containerName my2 `
+    -credential $credential `
+    -enableAppSourceCop `
+    -previousApps @( "https://businesscentralapps.blob.core.windows.net/helloworld-appsource/latest/apps.zip" ) `
+    -apps @( "https://businesscentralapps.blob.core.windows.net/helloworld-appsource-preview/latest/apps.zip" ) `
+    -affixes @("hw") `
+    -supportedCountries @("us")
+```
+
+It's possible to add CodeCop and UICop analyzers to the call and to specify a custom ruleset in the `ruleSetFile` parameter. If you're validating for Marketplace, the default Marketplace validation ruleset is used.
 
 Include app and all library apps in both previousApps and apps and also include all countries/regions on which you want to validate.
 
 > [!NOTE]  
-> The Run-AlValidation can't see whether the affixes to specify have been correctly registered with Microsoft using your MPN ID and app publisher name, please make sure registration is in place.
+> The `Run-AlValidation` can't see whether the affixes to specify have been correctly registered with Microsoft using your MPN ID and app publisher name, please make sure registration is in place.
 
 > [!IMPORTANT]
 > The computer on which you run this command must have Docker and the latest `BcContainerHelper` PowerShell module installed and be able to run [!INCLUDE [prod_short](includes/prod_short.md)] on Docker.
->
-> If you're having issues with [!INCLUDE [prod_short](includes/prod_short.md)] on Docker, you might be able to find help here: [https://freddysblog.com/2020/10/12/troubleshooting-business-central-on-docker](https://freddysblog.com/2020/10/12/troubleshooting-business-central-on-docker).
 >
 > You can use [https://aka.ms/getbc?artifacturl=bcartifacts%2fsandbox%2f%2fus%2flatest](https://aka.ms/getbc?artifacturl=bcartifacts%2fsandbox%2f%2fus%2flatest) to create an Azure VM, which has all prerequisites installed to run [!INCLUDE [prod_short](includes/prod_short.md)] on Docker.
 
@@ -124,9 +154,9 @@ Detailed validation results are automatically logged to telemetry in the [!INCLU
 
 In order to enable partner telemetry in your extension, you must specify the `applicationInsightsConnectionString` property in the manifest (app.json) of your extension. Learn more about this property in [JSON files](devenv-json-files.md).
 
-In order to get started on analyzing your validation results, you can use this troubleshooting guide [Dynamics 365 Business Central Troubleshooting Guide (TSG) - AppSource Submission Results (SaaS)](https://github.com/microsoft/BCTech/tree/master/samples/AppInsights/TroubleShootingGuides/D365BC%20Troubleshooting%20Guides%20(TSG)/content/AppSource-Submission-TSG.ipynb).
+In order to get started on analyzing your validation results, you can use this troubleshooting guide [Dynamics 365 Business Central Troubleshooting Guide (TSG) - Marketplace Submission Results (SaaS)](https://github.com/microsoft/BCTech/tree/master/samples/AppInsights/TroubleShootingGuides/D365BC%20Troubleshooting%20Guides%20(TSG)/content/AppSource-Submission-TSG.ipynb).
 
-Learn more about the signals sent to telemetry during the technical validation in [Analyzing AppSource submission validation telemetry](../administration/telemetry-appsource-submission-validation-trace.md).
+Learn more about the signals sent to telemetry during the technical validation in [Analyzing Marketplace submission validation telemetry](../administration/telemetry-appsource-submission-validation-trace.md).
 
 > [!NOTE]  
 > You can set up alerts on validation telemetry. For example, you can send a daily/weekly notification to Teams/email on all validation failures across all your apps. Learn more in [Alerting on telemetry](../administration/telemetry-alert.md).
@@ -134,7 +164,7 @@ Learn more about the signals sent to telemetry during the technical validation i
 
 ## Against which releases of Business Central is your submission validated?
 
-Extensions submitted to the AppSource marketplace are validated for all countries/regions specified in the submission against all the release targeted by the submission. As part of the validation, the minimum release for your submission is computed. The extensions are then validated for all releases from this minimum release to the current release in production. For example, if the minimum release for your submission is 18.0 and the latest minor release in production is 18.3, your submission is validated against 18.0, 18.1, 18.2, and 18.3.
+Extensions submitted to the Marketplace are validated for all countries/regions specified in the submission against all the release targeted by the submission. As part of the validation, the minimum release for your submission is computed. The extensions are then validated for all releases from this minimum release to the current release in production. For example, if the minimum release for your submission is 18.0 and the latest minor release in production is 18.3, your submission is validated against 18.0, 18.1, 18.2, and 18.3.
 
 The minimum release for your submission is computed based on the `application` property specified in the app.json of your extension. 
 
@@ -142,7 +172,7 @@ The minimum release for your submission is computed based on the `application` p
 > If multiple extensions are contained in your submission, the minimum release for the submission is the highest minimal release computed for each of the extensions in the submission.
 
 > [!NOTE]  
-> The telemetry sent during the technical validation contains details about validation success/failure against each release of Business Central specified above. Learn more in [Analyzing AppSource submission validation telemetry](../administration/telemetry-appsource-submission-validation-trace.md).
+> The telemetry sent during the technical validation contains details about validation success/failure against each release of Business Central specified above. Learn more in [Analyzing Marketplace submission validation telemetry](../administration/telemetry-appsource-submission-validation-trace.md).
 
 
 > [!Important]  
@@ -162,7 +192,7 @@ If your extension's manifest is defined as follows, the minimum release where yo
 
 The minimum release of the extension is then 18.0.
 
-For AppSource extensions, it's now required to use the `application` property instead of explicit dependencies on the `Base Application` and `System Application`. Learn more in[The Microsoft_Application.app file](devenv-application-app-file.md) and [AS0085](/dynamics365/business-central/dev-itpro/developer/analyzers/appsourcecop).
+For Marketplace extensions, it's now required to use the `application` property instead of explicit dependencies on the `Base Application` and `System Application`. Learn more in[The Microsoft_Application.app file](devenv-application-app-file.md) and [AS0085](/dynamics365/business-central/dev-itpro/developer/analyzers/appsourcecop).
 
 <!-- ### How to specify a maximum release for your extension?
 
@@ -199,4 +229,4 @@ In this case, you can create a version 1.0.0.1 of your extension and submit it w
 ## Related information
 
 [Developing [!INCLUDE[d365al_ext_md](../includes/d365al_ext_md.md)]s](devenv-dev-overview.md)
-[Analyzing AppSource Submission Validation Telemetry](../administration/telemetry-appsource-submission-validation-trace.md)
+[Analyzing Marketplace Submission Validation Telemetry](../administration/telemetry-appsource-submission-validation-trace.md)

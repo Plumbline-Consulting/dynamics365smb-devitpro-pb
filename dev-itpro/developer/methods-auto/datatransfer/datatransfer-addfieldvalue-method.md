@@ -2,7 +2,7 @@
 title: "DataTransfer.AddFieldValue(Integer, Integer) Method"
 description: "Specifies a source and destination field, where the values from the source field are to be copied to the destination field."
 ms.author: solsen
-ms.date: 08/26/2024
+ms.date: 03/11/2026
 ms.topic: reference
 author: SusanneWindfeldPedersen
 ms.reviewer: solsen
@@ -41,7 +41,7 @@ The destination table field.
 
 [!INCLUDE[data-transfer](../../../developer/includes/data-transfer.md)]
 
-Use this method when copying data in rows or fields of table to rows or fields of another table. For more information, see [Transferring Data Bewteen Tables](../../../developer/devenv-data-transfer.md).
+Use this method when copying data in rows or fields of table to rows or fields of another table. For more information, see [Transferring Data Between Tables](../../../developer/devenv-data-transfer.md).
 
 > [!NOTE]
 > Copying the SystemID and [data audit](../../devenv-table-system-fields.md#audit) fields using CopyRows is supported in Business Central version 21.5 and later.

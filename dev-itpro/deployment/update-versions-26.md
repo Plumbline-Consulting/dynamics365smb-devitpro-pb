@@ -5,7 +5,7 @@ author: jswymer
 ms.author: jswymer
 ms.reviewer: jswymer
 ms.service: dynamics-365-op
-ms.date: 06/24/2025
+ms.date: 03/30/2026
 ms.topic: article
 ms.custom: bap-template
 ---
@@ -27,9 +27,18 @@ Every update includes the following local versions: AT, AU, BE, CH, CZ, DE, DK, 
 
 |Knowledge Base ID|Title|Release date  |Build No. |
 |-----------------|-----|--------------|----------|
-|[26.3](https://support.microsoft.com/help/5063362)|Update 26.3 |July 2025|Application Build 26.3<br>Platform Build 26.0|
-|[26.2](https://support.microsoft.com/help/5061918)|Update 26.2 |June 2025|Application Build 26.2.34832<br>Platform Build 26.0.34736|
-|[26.1](https://support.microsoft.com/help/5059415)|Update 26.1 |May 2025|Application Build 26.1.33876<br> Platform Build 26.0.33865|
+|[5086069](https://support.microsoft.com/help/5086069)|Update 26.12|April 2026|Application Build 26.12.48244, Platform Build 26.0.48120|
+|[5081984](https://support.microsoft.com/help/5081984)|Update 26.11|March 2026|Application Build 26.11.46853, Platform Build 26.0.46773|
+|[5078590](https://support.microsoft.com/help/5078590)|Update 26.10|February 2026|Application Build 26.10.45355, Platform Build 26.0.45278|
+|[5075269](https://support.microsoft.com/help/5075269)|Update 26.9 |January 2026|Application Build 26.9.44297, Platform Build 26.0.44179|
+|[5073764](https://support.microsoft.com/help/5073764)|Update 26.8 |December 2025|Application Build 26.8.42779, Platform Build 26.0.42720|
+|[5071095](https://support.microsoft.com/help/5071095)|Update 26.7 |November 2025|Application Build 26.7.41681 Platform Build 26.0.41643|
+|[5068248](https://support.microsoft.com/help/5068248)|Update 26.6 |October 2025|Application Build 26.6.40035, Platform Build 26.0.39968|
+|[5066309](https://support.microsoft.com/help/5066309)|Update 26.5 |September 2025|Application Build 26.5.38819, Platform Build 26.0.38743|
+|[5064779](https://support.microsoft.com/help/5064779)|Update 26.4 |August 2025|Application Build 26.4.37206, Platform Build 26.0.37130|
+|[5063362](https://support.microsoft.com/help/5063362)|Update 26.3 |July 2025|Application Build 26.3.36321, Platform Build 26.0.36290|
+|[5061918](https://support.microsoft.com/help/5061918)|Update 26.2 |June 2025|Application Build 26.2.34832, Platform Build 26.0.34736|
+|[5059415](https://support.microsoft.com/help/5059415)|Update 26.1 |May 2025|Application Build 26.1.33876, Platform Build 26.0.33865|
 
 [!INCLUDE [cu-kb-article-link-note](../includes/cu-kb-article-link-note.md)]
 

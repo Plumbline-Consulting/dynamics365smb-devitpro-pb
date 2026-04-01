@@ -2,7 +2,7 @@
 title: "DataTransfer data type"
 description: "A structure building bulk transfer of data between tables."
 ms.author: solsen
-ms.date: 08/26/2024
+ms.date: 03/11/2026
 ms.topic: reference
 author: SusanneWindfeldPedersen
 ms.reviewer: solsen
@@ -10,7 +10,7 @@ ms.reviewer: solsen
 [//]: # (START>DO_NOT_EDIT)
 [//]: # (IMPORTANT:Do not edit any of the content between here and the END>DO_NOT_EDIT.)
 [//]: # (Any modifications should be made in the .xml files in the ModernDev repo.)
-# DataTransfer Data type
+# DataTransfer data type
 > **Version**: _Available or changed with runtime version 10.0._
 
 A structure building bulk transfer of data between tables.
@@ -23,6 +23,7 @@ The following methods are available on instances of the DataTransfer data type.
 |Method name|Description|
 |-----------|-----------|
 |[AddConstantValue(Any, Integer)](datatransfer-addconstantvalue-method.md)|Specifies the given value is to be set in the given field in the destination table.|
+|[AddDestinationFilter(Integer, Text [, Any,...])](datatransfer-adddestinationfilter-method.md)|Adds a filter for the destination table for the data transfer.|
 |[AddFieldValue(Integer, Integer)](datatransfer-addfieldvalue-method.md)|Specifies a source and destination field, where the values from the source field are to be copied to the destination field. The data types of the fields must match, except CODE to TEXT which is allowed.|
 |[AddJoin(Integer, Integer)](datatransfer-addjoin-method.md)|Adds a field pair to be used to create a join condition which determines which rows to transfer, optional for same table transfers.|
 |[AddSourceFilter(Integer, Text [, Any,...])](datatransfer-addsourcefilter-method.md)|Adds a filter for the source table for the data transfer.|

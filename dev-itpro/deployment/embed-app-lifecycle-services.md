@@ -10,8 +10,6 @@ ms.reviewer: jswymer
 
 # Managing an [!INCLUDE [prod_short](../developer/includes/prod_short.md)] [!INCLUDE[embed app](../developer/includes/embedapp.md)] in Microsoft Lifecycle Services
 
-[!INCLUDE[azure-ad-to-microsoft-entra-id](~/../shared-content/shared/azure-ad-to-microsoft-entra-id.md)]
-
 Microsoft provides essential functionality within [Microsoft Lifecycle Services](https://lcs.dynamics.com/v2) collaboration portal (LCS) to support qualified ISVs in managing the [!INCLUDE[embedapp](../developer/includes/embedapp.md)] based on [!INCLUDE [prod_short](../developer/includes/prod_short.md)] online.  
 
 ## Creating LCS project
@@ -46,7 +44,7 @@ Before deploying the [!INCLUDE[embedapp](../developer/includes/embedapp.md)], co
 
 2. Upload your apps into the App Repository
 
-    Upload new versions of your own apps into the App Repository using the App Management API. Don't upload Microsoft apps or apps from other ISVs. The Microsoft team regularly uploads Microsoft apps and AppSource apps to this repository, so you don't have to. For more information, see [App Management API](../administration/appmanagement/app-management-api.md#upload-version).
+    Upload new versions of your own apps into the App Repository using the App Management API. Don't upload Microsoft apps or apps from other ISVs. The Microsoft team regularly uploads Microsoft apps and Marketplace apps to this repository, so you don't have to. For more information, see [App Management API](../administration/appmanagement/app-management-api.md#upload-version).
 
 ### Upload the deployment package
 

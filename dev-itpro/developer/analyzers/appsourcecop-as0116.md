@@ -1,20 +1,16 @@
 ---
-title: "AppSourceCop Error AS0116"
+title: "AppSourceCop Warning AS0116"
 description: "The source application for this moved symbol cannot be found."
 ms.author: solsen
-ms.date: 02/18/2025
+ms.date: 03/11/2026
 ms.topic: reference
 author: SusanneWindfeldPedersen
 ms.reviewer: solsen
-ai-usage: ai-assisted
-ms.custom:
- - ai-gen-docs-bap
- - ai-seo-date: 01/02/2025
 ---
 [//]: # (START>DO_NOT_EDIT)
 [//]: # (IMPORTANT:Do not edit any of the content between here and the END>DO_NOT_EDIT.)
 [//]: # (Any modifications should be made in the .xml files in the ModernDev repo.)
-# AppSourceCop Error AS0116
+# AppSourceCop Warning AS0116
 Source application for the moved symbol cannot be found.
 
 ## Description

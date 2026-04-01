@@ -13,7 +13,13 @@ The sections in this article are tips and tricks on how to set up [!INCLUDE[prod
 
 ## Uninstall extensions that you don't use
 
-Any extensions that you install can affect the overall system performance. So if you install an app from AppSource, but later discover it's not needed, then uninstall it. The same advice applies to the extension that comes preinstalled in an environment. For example, uninstall all migration extensions after you've migrated data, or if you don't intend to migrate data.
+Any extensions that you install can affect the overall system performance. So if you install an app from Marketplace, but later discover it's not needed, then uninstall it. The same advice applies to the extension that comes preinstalled in an environment. For example, uninstall all migration extensions after you've migrated data, or if you don't intend to migrate data.
+
+### Performance impact of installed extensions
+
+[!INCLUDE [extensions-performance-impact](../includes/extensions-performance-impact.md)]
+
+For more information about uninstalling extensions and managing orphaned data, see [Unpublishing and Uninstalling Extensions](../developer/devenv-unpublish-and-uninstall-extension-v2.md).
 
 ## Run things in the background
 
@@ -108,6 +114,10 @@ A drawback of reading from a replica is that it introduces a slight delay compar
 ## Number of companies
 
 Having many companies can cause administrative tasks, like upgrades, point-in-time restores, and database exports, to take a long time and potentially hit timeout values. If you have more than 50 companies, we recommend that you test these operations and typical usage scenarios extensively. Delete companies that are no longer needed.
+
+## Manage database index usage
+
+[!INCLUDE[database-index-management](../developer/includes/database-index-management.md)]
 
 ## Don't do these things
 

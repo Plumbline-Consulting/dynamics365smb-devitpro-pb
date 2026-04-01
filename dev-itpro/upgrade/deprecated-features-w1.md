@@ -1,31 +1,43 @@
 ---
-title: Deprecated Features in the Base App
+title: Deprecated Features in the application
 description: Describes the features that have been moved, removed, or replaced in the W1 version.
 author: brentholtorf
 ms.author: bholtorf
-ms.date: 03/13/2025
-ms.reviewer: bholtorf
+ms.date: 02/20/2026
+ms.reviewer: solsen
 ms.topic: article
 ms.custom: bap-template
 ---
 
-# Deprecated Features in the Base App
+# Deprecated features in the application
 
-This article describes the features that have been moved, removed, or replaced in the W1 version of [!INCLUDE[prod_short](../developer/includes/prod_short.md)].
+This article describes the features that have been moved, removed, or replaced in the W1 version of [!INCLUDE[prod_short](../developer/includes/prod_short.md)]. The features can relate to the base app or other apps published by Microsoft.
 
 [!INCLUDE [feature-deprecation](../includes/feature-deprecation.md)]
 
-[!INCLUDE[azure-ad-to-microsoft-entra-id](~/../shared-content/shared/azure-ad-to-microsoft-entra-id.md)]
+## Changes in 2027 release wave 1 (version 30.0)
 
-## Changes in 2026 release wave 1
-
-The following features will be removed in 2026 release wave 1 (update 28.0).
-
-### Excel reports on the Business Manager and Accountant Role Centers (removal)
+### AMC Fundamentals app (removal)
 
 |Moved, Removed, or Replaced? |    Why?|
 |-----------------------------|-----|
-|Replaced| The following Excel reports are removed on the **Business Manager** and **Accountant** role centers.<ul><li>Balance Sheet</li><li>Income Statement</li><li>Statement of Cash Flow</li><li>Statement of Retained Earnings</li><li>Sales Taxes Collected</li><li>Customer Statements</li><li>Aged Accounts Payable</li><li>Aged Accounts Receivable</li></ul>Although these reports are useful to some organizations, changing them requires technical skills in AL and VBA (Visual Basic for Applications) programming. We've enhanced analytics capabilities in finance in each release wave over the last years. For example, we've added data analysis capabilities on ledger tables, reports with Excel layouts that allow you to change the layout as you see fit, and Power BI reports for finance. </br></br>Learn more about the replacement features at [aka.ms/bcFinanceAnalytics](https://aka.ms/bcFinanceAnalytics). |
+|Replaced| For years the **AMC Fundamentals** app has been published to Marketplace by Microsoft who shared the feature ownership with AMC. AMC has improved the app and will from now on take responsibility for maintaining and shipping the app. The Microsoft-published app will be removed from Business Central and replaced by an AMC-owned app that takes care of migration from **AMC Fundamentals**. Customers who use **AMC Fundamentals** and wish to use AMC's new app must coordinate this migration with AMC.|
+
+### Peppol BIS 2.0 and Peppol BIS 2.1 are replaced by Peppol BIS 3.0
+
+|Moved, Removed, or Replaced? |    Why?|
+|-----------------------------|-----|
+|Replaced| Support for Peppol BIS 2.0 and Peppol BIS 2.1 is removed in 2027 release wave 1 (version 29.0) and replaced by the Peppol BIS 3.0 standard. These Peppol formats were marked as `obsolete:pending` in version 26.0.<br><br>The Peppol network has officially phased out versions 2.0 and 2.1, and most government and B2B e-invoicing platforms now mandate Peppol BIS 3.0 for interoperability and compliance. Continuing to support outdated formats introduces security and compliance risks, and limits compatibility with modern e-document processing services.<br><br>You must update all integrations, mappings, and customizations to use Peppol BIS 3.0. This update ensures full compliance with current Peppol regulations and continued interoperability with global e-invoicing networks. |
+
+## Changes in 2026 release wave 1
+
+The following features will be removed in 2026 release wave 1 (version 28.0).
+
+### Excel reports on the Business Manager and Accountant Role Centers
+
+|Moved, Removed, or Replaced? |    Why?|
+|-----------------------------|-----|
+|Replaced| The following Excel reports are removed on the **Business Manager** and **Accountant** Role Centers.<ul><li>Balance Sheet</li><li>Income Statement</li><li>Statement of Cash Flow</li><li>Statement of Retained Earnings</li><li>Sales Taxes Collected</li><li>Customer Statements</li><li>Aged Accounts Payable</li><li>Aged Accounts Receivable</li></ul>Although these reports are useful to some organizations, changing them requires technical skills in AL and VBA (Visual Basic for Applications) programming. We've enhanced analytics capabilities in finance in each release wave over the last years. For example, we've added data analysis capabilities on ledger tables, reports with Excel layouts that allow you to change the layout as you see fit, and Power BI reports for finance. </br></br>Learn more about the replacement features at [aka.ms/bcFinanceAnalytics](https://aka.ms/bcFinanceAnalytics). |
 
 ### API (v1.0) for Business Central (removal)
 
@@ -33,11 +45,11 @@ The following features will be removed in 2026 release wave 1 (update 28.0).
 |-----------------------------|-----|
 |Replaced| With [!INCLUDE [prod_short](../developer/includes/prod_short.md)], you can create Connect apps. Connect apps establish a point-to-point connection between [!INCLUDE [prod_short](../developer/includes/prod_short.md)] and non-Micrososft solutions or services using the standard REST API to interchange data. </br></br>In 2020 release wave 2, we introduced an improved API where all complex properties are replaced with first-level properties or navigation properties. This change significantly improves API performance because the complex fields were previously calculated at runtime. In API v2.0, all multipart keys and non-GUID keys are replaced with unique GUID keys. Entities can be retrieved using the SystemId, which is immutable, platform-enforced, and indexed. This change improves auditing and API reading performance. The API v2.0 contains all the functionality from API v1.0, so migration should be possible. If this isn't the case, reach out to us via [https://github.com/microsoft/ALAppExtensions](https://github.com/microsoft/ALAppExtensions).</br></br>To learn about the replacement feature, go to [Transitioning from API v1.0 to API v2.0](../api-reference/v2.0/transition-to-api-v2.0.md). |
 
-### Legacy Power BI apps on AppSource (removal)
+### Legacy Power BI apps on Marketplace (removal)
 
 |Moved, Removed, or Replaced? |    Why?|
 |-----------------------------|-----|
-|Replaced| While useful to show the Power BI embed capabilities in [!INCLUDE [prod_short](../developer/includes/prod_short.md)], the following Power BI apps on AppSource are replaced: <ul><li>Dynamics 365 Business Central - CRM</li><li>Dynamics 365 Business Central - Finance</li><li>Dynamics 365 Business Central - Sales</li></ul> The apps are replaced by seven Power BI apps for finance, sales, purchasing, inventory, projects, and manufacturing. The new Power BI apps were released in version 25.1. </br></br>Learn more about the replacement features at [aka.ms/bcFinanceAnalytics](https://aka.ms/bcFinanceAnalytics).  |
+|Replaced| While useful to show the Power BI embed capabilities in [!INCLUDE [prod_short](../developer/includes/prod_short.md)], the following Power BI apps on Marketplace are replaced: <ul><li>Dynamics 365 Business Central - CRM</li><li>Dynamics 365 Business Central - Finance</li><li>Dynamics 365 Business Central - Sales</li></ul> The apps are replaced by seven Power BI apps for finance, sales, purchasing, inventory, projects, and manufacturing. The new Power BI apps were released in version 25.1. </br></br>Learn more about the replacement features at [aka.ms/bcFinanceAnalytics](https://aka.ms/bcFinanceAnalytics).  |
 
 ### Intelligent Cloud Insights (removal)
 
@@ -51,6 +63,16 @@ The following features will be removed in 2026 release wave 1 (update 28.0).
 |-----------------------------|-----|
 |Replaced| While useful to some organizations, many legacy reports in Business Central are hard to change for end users and  requires technical skills in AL and RDLC programming. Therefore, the following reports in the application have now been deprecated and will completely removed from [!INCLUDE[prod_short](../includes/prod_short.md)] in 2026 release wave 1:</br></br> **Finance reports**</br>[Aged Accounts Receivables (Legacy)](/dynamics365/business-central/reports/report-120)</br>[Aged Accounts Payable (legacy)](/dynamics365/business-central/reports/report-322)</br>[Trial Balance (legacy)](/dynamics365/business-central/reports/report-6)</br>[Trial Balance/Budget (legacy)](/dynamics365/business-central/reports/report-9) </br></br> **Fixed Assets reports** </br>[Fixed Asset Analysis (legacy)](/dynamics365/business-central/reports/report-5600)</br>[Fixed Asset Details (legacy)](/dynamics365/business-central/reports/report-5604)</br>[Fixed Asset Projected Value (legacy)](/dynamics365/business-central/reports/report-5607) </br></br> **Manufacturing reports** </br>[Work Center List (legacy)](/dynamics365/business-central/reports/report-99000759) </br>[Machine Center List (legacy)](/dynamics365/business-central/reports/report-99000760)  </br>[Rolled-up Cost Shares (legacy)](/dynamics365/business-central/reports/report-99000754)  </br>[Single-Level Cost Shares (legacy)](/dynamics365/business-central/reports/report-99000755) </br>[Detailed Calculation (legacy)](/dynamics365/business-central/reports/report-99000756) </br>[Item BOM Compare list (legacy)](/dynamics365/business-central/reports/report-99000758) </br>[Work Center Load (legacy)](/dynamics365/business-central/reports/report-99000783) </br>[Machine Center Load (legacy)](/dynamics365/business-central/reports/report-99000784) </br>[Work Center Load (legacy)](/dynamics365/business-central/reports/report-99000785)  </br>[Machine Center Load (legacy)](/dynamics365/business-central/reports/report-99000786) </br>[Prod. Order - Calculation (legacy)](/dynamics365/business-central/reports/report-99000767) </br></br> **Sales reports** </br>[Customer - Top 10 List (legacy)](/dynamics365/business-central/reports/report-111) </br></br> **Purchasing reports** </br>[Vendor - List (legacy)](/dynamics365/business-central/reports/report-301)</br>[Vendor - Summary Aging (legacy)](/dynamics365/business-central/reports/report-305) </br></br>We've enhanced analytics capabilities in the application in each release wave over the last three years. For example, we've added data analysis capabilities on list pages and queries, reports with Excel layouts that allow you to change the layout as you see fit, and Power BI reports for most functional areas in the application. </br></br>Learn more about replacement features in [aka.ms/bcAnalytics](https://aka.ms/bcAnalytics). |
 
+## Changes in 2025 release wave 2
+
+The following features are marked as `obsolete:pending` in 2025 release wave 2.
+
+### Global planning setup fields moved to the Inventory Setup page
+
+|Moved, Removed, or Replaced? |    Why?|
+|-----------------------------|-----|
+|Moved| To reduce confusion, and highlight that planning capabilities aren't limited to manufacturing, we moved the following global planning setup fields from the **Manufacturing Setup** page to the **Inventory Setup** page:</br></br>-**Current Production Forecast**</br>-**Use Forecast on Locations**</br>-**Use Forecast on Variants**</br>-**Default Safety Lead Time**</br>-**Blank Overflow Level**</br>-**Combined MPS/MRP Calculation**</br>-**Default Dampener Period**</br>-**Default Dampener %**</br></br>These fields are now non-editable and hidden on the **Manufacturing Setup** page. |
+
 ## Changes in 2025 release wave 1
 
 The following features are marked as `obsolete:pending` in 2025 release wave 1.
@@ -61,11 +83,11 @@ The following features are marked as `obsolete:pending` in 2025 release wave 1.
 |-----------------------------|-----|
 |Replaced| The following Excel reports will be are removed on the **Business Manager** and **Accountant** role centers.<ul><li>Balance Sheet</li><li>Income Statement</li><li>Statement of Cash Flow</li><li>Statement of Retained Earnings</li><li>Sales Taxes Collected</li><li>Customer Statements</li><li>Aged Accounts Payable</li><li>Aged Accounts Receivable</li></ul>Although these reports are useful to some organizations, changing them requires technical skills in AL and VBA (Visual Basic for Applications) programming. We've enhanced analytics capabilities in finance in each release wave over the last years. For example, we've added data analysis capabilities on ledger tables, reports with Excel layouts that allow you to change the layout as you see fit, and Power BI reports for finance. </br></br>Learn more about the replacement features at [aka.ms/bcFinanceAnalytics](https://aka.ms/bcFinanceAnalytics). |
 
-### Legacy Power BI apps on AppSource (warning)
+### Legacy Power BI apps on Marketplace (warning)
 
 |Moved, Removed, or Replaced? |    Why?|
 |-----------------------------|-----|
-|Replaced| While useful for showing the Power BI embed capabilities in [!INCLUDE [prod_short](../developer/includes/prod_short.md)], the following legacy Power BI apps on AppSource are replaced: <ul><li>Dynamics 365 Business Central - CRM</li><li>Dynamics 365 Business Central - Finance</li><li>Dynamics 365 Business Central - Sales</li></ul> The apps are replaced by seven Power BI apps for finance, sales, purchasing, inventory, projects, and manufacturing. The new Power BI apps were released in version 25.1. </br></br>Learn more about the replacement features at [aka.ms/bcFinanceAnalytics](https://aka.ms/bcFinanceAnalytics).  |
+|Replaced| While useful for showing the Power BI embed capabilities in [!INCLUDE [prod_short](../developer/includes/prod_short.md)], the following legacy Power BI apps on Marketplace are replaced: <ul><li>Dynamics 365 Business Central - CRM</li><li>Dynamics 365 Business Central - Finance</li><li>Dynamics 365 Business Central - Sales</li></ul> The apps are replaced by seven Power BI apps for finance, sales, purchasing, inventory, projects, and manufacturing. The new Power BI apps were released in version 25.1. </br></br>Learn more about the replacement features at [aka.ms/bcFinanceAnalytics](https://aka.ms/bcFinanceAnalytics).  |
 
 ### Intelligent Cloud Insights (warning)
 
@@ -104,7 +126,7 @@ The following features are marked as `obsolete:pending` in 2024 release wave 2.
 
 |Moved, Removed, or Replaced? |    Why?|
 |-----------------------------|-----|
-|Replaced|User groups are replaced by security groups. Security groups were introduced in Business Central in 2023 release wave 1. They make it easier for administrators to manage user permissions by allowing them to group users by department, job function, and so on. Administrators assign the permissions to the group that its members need to do their jobs. Security groups are based on groups in Microsoft 365 admin center or Azure portal. That benefits administrators because they can use their security groups with other Dynamics 365 apps. For example, if salespeople use Business Central and SharePoint, administrators don't have to recreate the group and its members.<br><br>Learn more about security groups in [Control Access to Business Central Using Security Groups](/dynamics365/business-central/ui-security-groups).|
+|Replaced|User groups are replaced by security groups. Security groups were introduced in Business Central in 2023 release wave 1. They make it easier for administrators to manage user permissions by allowing them to group users by department, job function, and so on. Administrators assign the permissions to the group that its members need to do their jobs. Security groups are based on groups in Microsoft 365 admin center or Azure portal. That benefits administrators because they can use their security groups with other Dynamics 365 apps. For example, if salespeople use Business Central and SharePoint, administrators don't have to recreate the group and its members.<br><br>For on-premises deployments using Microsoft Entra authentication, security groups support requires Business Central version 25.11, 26.5, 27.4 or later.<br><br>Learn more about security groups in [Control Access to Business Central Using Security Groups](/dynamics365/business-central/ui-security-groups).|
 
 ## Changes in 2024 release wave 1
 
@@ -162,7 +184,7 @@ The following features are marked as `obsolete:pending` in 2023 release wave 1.
 
 |Moved, Removed, or Replaced? |    Why?|
 |-----------------------------|-----|
-|Replaced | User groups let administrators manage permissions for groups of users who have the same or similar roles in the business. For example, you might create a user group for your sales department, and one for your purchasers. To make it a bit easier for administrators to manage permissions, we're replacing user groups and adding the ability to group users directly on permission sets. On the **Permission Sets** page, use the **Users** FactBox to assign the set to users.<br><br> To make it easier to reuse sets of users across other Dynamics 365 apps, we've also introduced optional security groups. Administrators can link [!INCLUDE [prod_short](../includes/prod_short.md)] security groups to their counterparts in Microsoft Entra ID or Windows Active Directory. The link let's administrators manage group memberships in Active Directory. In terms of managing permissions, security groups work in the same way as user groups. Learrn more about the new security groupsin [Control Access Using Security Groups](/dynamics365/business-central/ui-security-groups).<br><br>If you have an extension that relies on user groups, and you'd like to explore examples of how to update it to use permission sets or [!INCLUDE [prod_short](../developer/includes/prod_short.md)] security groups, refer to [Migrate from User Groups to Permission Sets or Security Groups](/dynamics365/business-central/dev-itpro/upgrade/deprecated-features-user-groups). |
+|Replaced | User groups let administrators manage permissions for groups of users who have the same or similar roles in the business. For example, you might create a user group for your sales department, and one for your purchasers. To make it a bit easier for administrators to manage permissions, we're replacing user groups and adding the ability to group users directly on permission sets. On the **Permission Sets** page, use the **Users** FactBox to assign the set to users.<br><br> To make it easier to reuse sets of users across other Dynamics 365 apps, we've also introduced optional security groups. Administrators can link [!INCLUDE [prod_short](../includes/prod_short.md)] security groups to their counterparts in Microsoft Entra ID or Windows Active Directory. The link let's administrators manage group memberships in Active Directory. In terms of managing permissions, security groups work in the same way as user groups. Learn more about the new security groups in [Control Access Using Security Groups](/dynamics365/business-central/ui-security-groups).<br><br>For on-premises deployments using Microsoft Entra authentication, security groups support requires Business Central version 25.11, 26.5, 27.4 or later.<br><br>If you have an extension that relies on user groups, and you'd like to explore examples of how to update it to use permission sets or [!INCLUDE [prod_short](../developer/includes/prod_short.md)] security groups, refer to [Migrate from User Groups to Permission Sets or Security Groups](/dynamics365/business-central/dev-itpro/upgrade/deprecated-features-user-groups).|
 
 ## Changes in 2022 release wave 2
 

@@ -9,9 +9,8 @@ ms.author: jswymer
 author: jswymer
 ms.reviewer: jswymer
 ---
-# Upgrading to [!INCLUDE[prod_long](../developer/includes/prod_long.md)] 2019 Release Wave 2
 
-[!INCLUDE[azure-ad-to-microsoft-entra-id](~/../shared-content/shared/azure-ad-to-microsoft-entra-id.md)]
+# Upgrading to [!INCLUDE[prod_long](../developer/includes/prod_long.md)] 2019 Release Wave 2
 
 <!--
 > [!IMPORTANT]  
@@ -666,7 +665,7 @@ In version 15, with the move to AL, the only symbols required are the system sym
 <!--  Symbols in AL extensions are essentially the definitions of the objects and elements (such as fields, data types, and methods) that are used in the AL code to create the extension. They are used by the AL compiler to understand the structure and dependencies of the code.-->
 
 ### Customization extensions
-Customization extensions are AL extensions that add functionality to the base application or system application. These extensions can be Microsoft (1st party) or 3rd party extensions. 3rd party extensions are extensions that your organization provides or extensions that are provided by others, such as from ISVs or from AppSource.
+Customization extensions are AL extensions that add functionality to the base application or system application. These extensions can be Microsoft (1st party) or 3rd party extensions. 3rd party extensions are extensions that your organization provides or extensions that are provided by others, such as from ISVs or from Marketplace.
   
 ## Related information  
 
